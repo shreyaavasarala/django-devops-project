@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Dashboard</title>
+    {% load static %}
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            transition: 0.4s;
+        }
+
+        /* LIGHT MODE */
+        body.light {
+            background: #f4f4f4;
+            color: black;
+        }
+
+        /* DARK MODE */
+        body.dark {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .toggle-btn {
+            cursor: pointer;
+            padding: 5px 10px;
+            background: #00ffc3;
+            border-radius: 8px;
+            color: black;
+        }
+
+        /* TITLE */
+        .title {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* CARDS */
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            width: 250px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* PIPELINE */
+        .pipeline {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .step {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background: #00ffc3;
+            color: black;
+            border-radius: 10px;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0% {opacity: 0.5;}
+            50% {opacity: 1;}
+            100% {opacity: 0.5;}
+        }
+
+        /* BADGE */
+        .badge {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body class="dark">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div>
+            <a href="/">Home</a>
+            <a href="/docker/">Docker</a>
+            <a href="/cicd/">CI/CD</a>
+            <a href="/architecture/">Architecture</a>
+            <a href="/about/">About</a>
+        </div>
+
+        <div class="toggle-btn" onclick="toggleMode()">🌙 Toggle Mode</div>
+    </div>
+
+    <!-- TITLE -->
+    <div class="title">
+        <h1>🚀 DevOps Dashboard</h1>
+        <p>Django • Docker • GitHub Actions</p>
+    </div>
+
+    <!-- CI/CD BADGE -->
+    <div class="badge">
+        <!-- Replace USERNAME & REPO -->
+        <img src="https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/django-ci.yml/badge.svg">
+    </div>
+
+    <!-- CARDS -->
+    <div class="container">
+
+        <div class="card">
+            <h2>Django</h2>
+            <p>Web Application</p>
+            <p>✔ Running</p>
+        </div>
+
+        <div class="card">
+            <h2>Docker</h2>
+            <p>Containerization</p>
+            <p>✔ Active</p>
+        </div>
+
+        <div class="card">
+            <h2>CI/CD</h2>
+            <p>Automation Pipeline</p>
+            <p>✔ Working</p>
+        </div>
+
+        <div class="card">
+            <h2>Deployment</h2>
+            <p>Localhost Server</p>
+            <p>✔ Live</p>
+        </div>
+
+    </div>
+
+    <!-- PIPELINE FLOW -->
+    <div class="pipeline">
+        <h2>⚙️ Pipeline Flow</h2>
+
+        <div class="step">Code</div>
+        ➡️
+        <div class="step">GitHub</div>
+        ➡️
+        <div class="step">CI/CD</div>
+        ➡️
+        <div class="step">Docker</div>
+        ➡️
+        <div class="step">Deploy</div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function toggleMode() {
+            let body = document.body;
+            if (body.classList.contains("dark")) {
+                body.classList.remove("dark");
+                body.classList.add("light");
+            } else {
+                body.classList.remove("light");
+                body.classList.add("dark");
+            }
+        }
+    </script>
+
+</body>
+</html>

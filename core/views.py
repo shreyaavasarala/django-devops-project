@@ -1,7 +1,16 @@
 from django.shortcuts import render
 
-# Create your views here.
-from django.http import HttpResponse
-
 def home(request):
-    return HttpResponse("DevOps Django CI/CD Project Running Successfully")
+    return render(request, 'index.html')
+
+def docker_page(request):
+    return render(request, 'docker.html')
+
+def cicd_page(request):
+    return render(request, 'cicd.html')
+
+def architecture_page(request):
+    return render(request, 'architecture.html')
+
+def about_page(request):
+    return render(request, 'about.html')
